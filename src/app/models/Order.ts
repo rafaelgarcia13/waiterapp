@@ -1,5 +1,4 @@
 import { model, Schema } from 'mongoose';
-import { CategorySchemaName } from './Category';
 import { ProductSchemaName } from './Product';
 
 export const OrderSchemaName = 'Order';
@@ -16,7 +15,7 @@ export const Order = model(
       enum: ['WAITING', 'IN_PRODUCTION', 'DONE'],
       default: 'WAITING',
     },
-    createAt: {
+    createdAt: {
       type: Date,
       default: Date.now,
     },
@@ -24,7 +23,7 @@ export const Order = model(
       required: true,
       type: [
         {
-          procut: {
+          product: {
             type: Schema.Types.ObjectId,
             required: true,
             ref: ProductSchemaName,
@@ -38,3 +37,5 @@ export const Order = model(
     },
   })
 );
+
+//docker run --name mongo -p 27017:27017 -d mongo

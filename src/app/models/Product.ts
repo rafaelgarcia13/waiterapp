@@ -1,16 +1,12 @@
 import { model, Schema } from 'mongoose';
 import { CategorySchemaName } from './Category';
 
-export const ProductSchemaName = 'Category';
+export const ProductSchemaName = 'Product';
 
 export const Product = model(
   ProductSchemaName,
   new Schema({
     name: {
-      type: String,
-      required: true,
-    },
-    icon: {
       type: String,
       required: true,
     },
