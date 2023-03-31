@@ -12,7 +12,7 @@ import { createOrder } from './app/useCases/orders/createOrder';
 import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
 import { cancelOrder } from './app/useCases/orders/cancelOrder';
 
-export const router = Router();
+export const routes = Router();
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -26,28 +26,28 @@ const upload = multer({
 });
 
 // List categories
-router.get('/categories', listCategories);
+routes.get('/categories', listCategories);
 
 // Create category
-router.post('/categories', createCategory);
+routes.post('/categories', createCategory);
 
 // List products
-router.get('/products', listProducts);
+routes.get('/products', listProducts);
 
 // Create products
-router.post('/products', upload.single('image'), createProduct);
+routes.post('/products', upload.single('image'), createProduct);
 
 // Get products by category
-router.get('/categories/:categoryId/products', listProductsByCategory);
+routes.get('/categories/:categoryId/products', listProductsByCategory);
 
 // List orders
-router.get('/orders', listOrders);
+routes.get('/orders', listOrders);
 
 // Create order
-router.post('/orders', createOrder);
+routes.post('/orders', createOrder);
 
 // Change order status
-router.patch('/orders/:orderId', changeOrderStatus);
+routes.patch('/orders/:orderId', changeOrderStatus);
 
 // Delet/cancel order
-router.delete('/orders/:orderId', cancelOrder);
+routes.delete('/orders/:orderId', cancelOrder);
