@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon src/index.ts",
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "start": "node dist"
   },
   "devDependencies": {
@@ -15,9 +15,8 @@
     "@typescript-eslint/parser": "^5.57.0",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
-    "nodemon": "^2.0.22",
     "prettier": "^2.8.7",
-    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {
